@@ -1,0 +1,12 @@
+[package]
+name = "crates_io_stats_dbdump"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+db-dump = "0.7.2"
+chrono = "0.4.34"
+csv = "1.2.2"
+semver = "1.0.23"
+tempdir = "0.3.7"
+reqwest = { version = "0.12.4", features = ["blocking"] }
