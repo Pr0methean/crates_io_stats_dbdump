@@ -8,10 +8,11 @@ use tempdir::TempDir;
 const CRATE: &str = "zip";
 
 fn main() -> db_dump::Result<()> {
+    simple_log::quick().expect("Failed to configure logging");
     let db_dir = TempDir::new("crates_io_stats_dbdump")?;
     let db_path = db_dir.path().join("db-dump.tar.gz");
-    let mut resp = reqwest::blocking::get("https://sh.rustup.rs").expect("request failed");
     let mut db = File::create(&db_path).expect("failed to create file");
+    let mut resp = reqwest::blocking::get("https://static.crates.io/db-dump.tar.gz").expect("request failed");
     copy(&mut resp, &mut db).expect("failed to copy content");
     let mut crate_id = None;
     let mut versions = Vec::new();

@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+log = "0.4.21"
+simple-log = "1.6.0"
 db-dump = "0.7.2"
 chrono = "0.4.34"
 csv = "1.2.2"
